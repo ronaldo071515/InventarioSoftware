@@ -1,4 +1,4 @@
-const uuid = require('uuid')
+const uuid = require('uuid');
 
 const { Marcas } = require('../models/Marcas');
 const { Proveedor } = require('../models/Proveedores');
@@ -7,7 +7,7 @@ const { Producto } = require('../models/Productos');
 
 const isUUID = async ( uuidValid ) => {
     if( !uuid.validate( uuidValid ) ) {
-        throw new Error(`No es un proveedor válido, intente nuevamente`);
+        throw new Error(`No es un UUID válido, intente nuevamente`);
     }
 }
 
@@ -48,11 +48,19 @@ const existeProducto = async (nombre_producto) => {
     }
 }
 
+const existeProductoId = async (id) => {
+    const existeProductoId = await Producto.findByPk(id);
+    if( !existeProductoId ) {
+        throw new Error(`No existe el producto, intente nuevamente`);
+    }
+}
+
 module.exports = {
     existeMarca,
     existeMarcaId,
-    existeProveedor,
     existeProducto,
+    existeProductoId,
+    existeProveedor,
     existeProveedorId,
-    isUUID
+    isUUID,
 }

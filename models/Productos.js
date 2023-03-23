@@ -46,9 +46,9 @@ const Producto = db.define('productos', {
     }
 });
 
-/* (async () => {
-    await Producto.sync({ force: true });
-})(); */
+(async () => {
+    await Producto.sync();
+})();
 
 module.exports = {
     Producto

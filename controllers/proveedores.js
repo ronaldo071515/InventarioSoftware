@@ -52,9 +52,7 @@ const obtenerProveedores = async (req, res) => {
 }
 
 const obtenerProveedor = async (req, res) => {
-
     const { id } = req.params;
-    console.log(id);
     try {
 
         const proveedor = await Proveedor.findByPk( id );
