@@ -6,6 +6,7 @@ const { Usuario } = require('./models/Usuario');
 const { Producto } = require('./models/Productos');
 const { Proveedor } = require('./models/Proveedores');
 const { Marcas } = require('./models/Marcas');
+const { ImagenesProductos } = require('./models/Imagenes');
 
 const app = express();
 
