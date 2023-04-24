@@ -30,9 +30,9 @@ const Marcas = db.define('marcas', {
     }
 });
 
-(async () => {
+/* (async () => {
     await Marcas.sync();
-})();
+})(); */
 
 Marcas.hasMany( Producto, {
     foreignKey: 'marcaId',

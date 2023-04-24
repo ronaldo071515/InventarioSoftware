@@ -36,9 +36,9 @@ const Proveedor = db.define("proveedores", {
     }
 });
 
-(async () => {
+/* (async () => {
     await Proveedor.sync();
-})();
+})(); */
 
 
 Proveedor.hasMany( Producto, {

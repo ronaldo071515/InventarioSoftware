@@ -47,14 +47,21 @@ const Usuario = db.define('usuarios', {
     
 });
 
-(async () => {
+/* (async () => {
     await Usuario.sync({ alter: true });
-})();
+})(); */
 
 Usuario.hasMany( Producto, {
     foreignKey: 'usuarioId',
     sourceKey: 'id',
     type: DataTypes.UUIDV4,
+});
+
+Producto.belongsTo(Usuario, {
+    foreignKey: {
+      name: 'usuarioId',
+      allowNull: false
+    }
 });
 
 Usuario.prototype.toJSON =  function () {

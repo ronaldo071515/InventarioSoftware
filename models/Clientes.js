@@ -31,9 +31,9 @@ const Cliente = db.define('clientes', {
 
 });
 
-(async () => {
+/* (async () => {
     await Cliente.sync({ force: false });
-})();
+})(); */
 
 
 module.exports = {
