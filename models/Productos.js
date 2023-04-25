@@ -54,7 +54,7 @@ const Producto = db.define('productos', {
 Producto.hasMany( ImagenesProductos, {
     foreignKey: 'productoId',
     sourceKey: 'id',
-    type: DataTypes.UUIDV4,
+    type: DataTypes.UUID,
 });
 
 module.exports = {
