@@ -31,6 +31,7 @@ async function main() {
         app.use( '/api/proveedores', require('./routes/proveedores') );
         app.use( '/api/marcas', require('./routes/marcas') );
         app.use( '/api/clientes', require('./routes/clientes') );
+        app.use( '/api/imagenes', require('./routes/imagenes') );
 
 
         app.listen( process.env.PORT, () => {

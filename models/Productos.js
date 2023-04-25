@@ -1,6 +1,7 @@
 
 const { DataTypes } = require('sequelize');
 const { db } = require('../db/conection');
+const { ImagenesProductos } = require('./Imagenes');
 
 const Producto = db.define('productos', {
 
@@ -46,9 +47,15 @@ const Producto = db.define('productos', {
     }
 });
 
-(async () => {
+/* (async () => {
     await Producto.sync();
-})();
+})(); */
+
+Producto.hasMany( ImagenesProductos, {
+    foreignKey: 'productoId',
+    sourceKey: 'id',
+    type: DataTypes.UUID,
+});
 
 module.exports = {
     Producto
