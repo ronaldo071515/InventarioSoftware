@@ -47,15 +47,20 @@ const Producto = db.define('productos', {
     }
 });
 
-/* (async () => {
+(async () => {
     await Producto.sync();
-})(); */
+})();
 
 Producto.hasMany( ImagenesProductos, {
     foreignKey: 'productoId',
     sourceKey: 'id',
     type: DataTypes.UUID,
 });
+
+Producto.prototype.toJSON =  function () {
+    const { proveedorId, marcaId, usuarioId, ...producto } = this.get();
+    return producto;
+}
 
 module.exports = {
     Producto

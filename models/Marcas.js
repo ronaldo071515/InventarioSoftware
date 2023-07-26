@@ -30,16 +30,20 @@ const Marcas = db.define('marcas', {
     }
 });
 
-/* (async () => {
+(async () => {
     await Marcas.sync();
-})(); */
+})();
 
 Marcas.hasMany( Producto, {
     foreignKey: 'marcaId',
     sourceKey: 'id',
     type: DataTypes.INTEGER,
 });
-
+Producto.belongsTo( Marcas, {
+    foreignKey: 'marcaId',
+    targetId: "id",
+    type: DataTypes.UUID,
+});
 
 module.exports = {
     Marcas

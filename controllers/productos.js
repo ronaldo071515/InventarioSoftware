@@ -1,6 +1,9 @@
 
 const { Producto } = require('../models/Productos');
-
+const { Marcas } = require('../models/Marcas');
+const { Proveedor } = require('../models/Proveedores');
+const { Usuario } = require('../models/Usuario');
+const { ImagenesProductos } = require('../models/Imagenes');
 
 const crearProducto = async (req, res) => {
     const { ...producto } = req.body;
@@ -26,15 +29,34 @@ const obtenerProductos = async (req, res) => {
         const { count, rows } = await Producto.findAndCountAll({
             where: { estado: true },
             offset: (Number( pagina ) -1 ) * cantidad,
-            limit: Number( cantidad )
+            limit: Number( cantidad ),
+            include: [
+                {
+                    model: Marcas,
+                    attributes: ['id', 'nombre_marca'],
+                },
+                {
+                    model: Proveedor,
+                    attributes: ['id_proveedor','nombre_proveedor'],
+                },
+                {
+                    model: Usuario,
+                    attributes: ['id', 'nombre_completo']
+                },
+                {
+                    model: ImagenesProductos,
+                    attributes: ['url']
+                },
+            ],
         });
         return res.status(200).json({
             total: count,
             cantidad: Number(cantidad),
             pagina: Number(pagina),
-            productos: rows
+            productos: rows,
         });
     } catch (error) {
+        console.log(error);
         return res.status(500).json({
             ok: false,
             msg: 'Contacta con el administrador'
@@ -45,8 +67,27 @@ const obtenerProductos = async (req, res) => {
 const obtenerProducto = async (req, res) => {
     const { id } = req.params;
     try {
-
-        const producto = await Producto.findByPk( id );
+        const producto = await Producto.findByPk(id, {
+            where: { estado: true },
+            include: [
+                {
+                    model: Marcas,
+                    attributes: ['id', 'nombre_marca'],
+                },
+                {
+                    model: Proveedor,
+                    attributes: ['id_proveedor','nombre_proveedor'],
+                },
+                {
+                    model: Usuario,
+                    attributes: ['id', 'nombre_completo']
+                },
+                {
+                    model: ImagenesProductos,
+                    attributes: ['url']
+                },
+            ],
+        });
         return res.status(200).json(producto);
 
     } catch (error) {

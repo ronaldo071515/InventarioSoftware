@@ -36,9 +36,9 @@ const Proveedor = db.define("proveedores", {
     }
 });
 
-/* (async () => {
+(async () => {
     await Proveedor.sync();
-})(); */
+})();
 
 
 Proveedor.hasMany( Producto, {
@@ -46,11 +46,11 @@ Proveedor.hasMany( Producto, {
     sourceKey: 'id_proveedor',
     type: DataTypes.UUID,
 });
-/* Producto.belongsTo( Proveedor, {
+Producto.belongsTo( Proveedor, {
     foreignKey: 'proveedorId',
     targetId: "id_proveedor",
     type: DataTypes.UUID,
-}); */
+});
 
 module.exports = {
     Proveedor
