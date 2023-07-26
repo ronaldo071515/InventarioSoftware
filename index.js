@@ -1,4 +1,5 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 require('dotenv').config();
 
 const { db } = require('./db/conection');
@@ -15,7 +16,7 @@ async function main() {
 
     try {
 
-        await db.sync({ force: true });/* sincronizar con la BD */
+        await db.sync();/* sincronizar con la BD */
         await db.authenticate();
         console.log('Conection has been stablished successfully');
 
@@ -25,6 +26,13 @@ async function main() {
         //directoriopublico
         app.use( express.static('public') );
 
+        //fileupload -carga de archivos
+		app.use(fileUpload({
+			useTempFiles : true,
+			createParentPath: true,
+			tempFileDir : '/tmp/'
+		}));
+
         //rutas
         app.use( '/api/auth', require('./routes/auth') );
         app.use( '/api/productos', require('./routes/productos') );
@@ -32,6 +40,8 @@ async function main() {
         app.use( '/api/marcas', require('./routes/marcas') );
         app.use( '/api/clientes', require('./routes/clientes') );
         app.use( '/api/imagenes', require('./routes/imagenes') );
+        //subida de archivos
+        app.use( '/api/uploads', require('./routes/uploads') );
 
 
         app.listen( process.env.PORT, () => {

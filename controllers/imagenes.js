@@ -1,17 +1,19 @@
+const path = require('path');
+const fs = require('fs');
+
+const cloudinary = require('cloudinary').v2;
+
+const { subirArchivo } = require('../helpers/subir-archivo');
 const { ImagenesProductos } = require('../models/Imagenes');
 
-const crearImagenes = async (req, res) => {
-
-    const { url } = req.body;
-    const { id } = req.params;
-
+const subirImagen = async (req, res) => {
+    // const { url } = req.body;
+    // const { id } = req.params;
     try {
-        const imagenProducto = await ImagenesProductos.create({ url, productoId: id });
-        console.log(imagenProducto);
-        res.status(200).json({
-            ok: true,
-            msg: 'Imagen agregada'
-        });
+        // txt md
+		const nombre = await subirArchivo( req.files, undefined, 'imgs' );
+		// const nombre = await subirArchivo( req.files, ['txt', 'md'], 'textos' );//crea la carpeta textos
+		res.json({ nombre });
         
     } catch (error) {
         return res.status(500).json({
@@ -24,5 +26,5 @@ const crearImagenes = async (req, res) => {
 
 
 module.exports = {
-    crearImagenes,
+    subirImagen,
 }
