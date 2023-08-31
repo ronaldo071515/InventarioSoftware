@@ -31,7 +31,7 @@ Imagen del modelo de base de datos en la carpeta `public/img`
 MIT
 
 ## Autor
-[Ronaldo Torres](github.com/ronaldo071515)
+[Ronaldo Torres](https://github.com/ronaldo071515)
 
 ## Contacto
 - [Twitter](https://twitter.com/r_0_n_a_l_d_0)
