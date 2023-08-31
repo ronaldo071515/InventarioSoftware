@@ -11,7 +11,7 @@ Es un proyecto de una API REST para un sistema de inventario de productos, clien
 En caso de tener problemas a la hora de conectar a la bd solo crear la bd manualmente y colocarla en el archivo `.env` en la variable `DB_NAME`. Luego ejecutar el comando `npm run dev` para que se creen las tablas en la bd.
 
 ## Documentacion de la API
-Falta documentar
+Falta documentar pero tenemos una documentación basica en postman en el siguiente enlace: [Documentacion](https://documenter.getpostman.com/view/7908350/2s9Y5bQgMx)
 
 ## Tecnologias usadas
 - NodeJS
