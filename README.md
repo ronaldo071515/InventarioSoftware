@@ -3,7 +3,7 @@ Es un proyecto de una API REST para un sistema de inventario de productos, clien
 
 ## Ejecutar el proyecto
 
-1. Intalar los modulos de node con el comando `npm install`
+1. Instalar los modulos de node con el comando `npm install`
 2. Ejecutar el comando `npm run dev` para iniciar el proyecto en modo desarrollo
 3. Configurar las variables de entorno en el archivo `.env` (ver archivo `.env.example`)
 
