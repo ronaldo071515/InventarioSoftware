@@ -22,14 +22,14 @@ const validarToken = async (req, res, next) => {
 
         if (!usuario) {
 			return res.status(401).json({
-				msg: 'Token no válido - Usuario no existe en DB'
+				msg: 'Token no válido'
 			})			
 		}
 
 		//verificar si uid tiene estado en true
 		if (!usuario.estado) {
 			return res.status(401).json({
-				msg: 'Token no válido - Usuario con estado: false'
+				msg: 'Token no válido'
 			})
 		}
 
