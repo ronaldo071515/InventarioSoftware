@@ -1,7 +1,7 @@
 {
   "name": "inventario",
   "version": "1.0.0",
-  "description": "Sofware de inventario creador por A&R",
+  "description": "Sofware de inventario creador por R",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,5 +24,8 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.25.5",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }
