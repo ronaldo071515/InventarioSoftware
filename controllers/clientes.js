@@ -17,7 +17,7 @@ const crearCliente = async (req, res) => {
         if( cliente ) {
             return res.status(400).json({
                 ok: false,
-                msg: `El cliente ya existe /cedula`
+                msg: `El cliente ya existe`
             });
         }
 
