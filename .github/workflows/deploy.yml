@@ -3,7 +3,7 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - main   # aquí defines en qué rama quieres que se active el deploy
+      - main
 
 jobs:
   deploy:
