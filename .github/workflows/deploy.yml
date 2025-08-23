@@ -1,0 +1,29 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main   # aquí defines en qué rama quieres que se active el deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to VPS
+        run: |
+          ssh -o StrictHostKeyChecking=no root@TU_IP_VPS "
+            cd /var/www/html &&
+            git pull &&
+            npm install &&
+            npm run build &&
+            pm2 restart app
+          "
