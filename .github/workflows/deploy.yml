@@ -20,10 +20,10 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_HOST }}"
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_HOST }} << 'EOF'
             cd /var/www/html &&
             git pull &&
             npm install &&
             npm run build &&
             pm2 restart app
-          "
+          EOF
