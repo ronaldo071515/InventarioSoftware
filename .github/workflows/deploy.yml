@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no root@TU_IP_VPS "
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_HOST }}"
             cd /var/www/html &&
             git pull &&
             npm install &&
