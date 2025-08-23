@@ -2,6 +2,9 @@
   "name": "inventario",
   "version": "1.0.0",
   "description": "Sofware de inventario creador por R",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
