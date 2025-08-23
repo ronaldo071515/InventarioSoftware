@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no root@$72.60.69.33 << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@72.60.69.33 << 'EOF'
             cd /var/www/html &&
             git pull &&
             npm install &&
