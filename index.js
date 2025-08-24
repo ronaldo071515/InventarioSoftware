@@ -43,6 +43,9 @@ async function main() {
         //subida de archivos
         app.use( '/api/uploads', require('./routes/uploads') );
 
+        //AlexDessarrolla
+        app.use( '/api/alexdesarrolla', require('./routes/alex') );
+
 
         app.listen( process.env.PORT, () => {
             console.log(`Server runing in port: ${ process.env.PORT }`);
